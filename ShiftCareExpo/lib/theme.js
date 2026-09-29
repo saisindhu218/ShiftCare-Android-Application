@@ -19,3 +19,11 @@ export const RADIUS = {
   pill: 30,
   button: 14,
 };
+
+export const SHADOW = {
+  shadowColor: "#1E3A8A",
+  shadowOffset: { width: 0, height: 6 },
+  shadowOpacity: 0.08,
+  shadowRadius: 14,
+  elevation: 3,
+};

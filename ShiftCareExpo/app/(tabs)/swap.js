@@ -7,7 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { supabase } from "../../lib/supabase";
 import GradientBackground from "../../lib/GradientBackground";
-import { COLORS, RADIUS } from "../../lib/theme";
+import { COLORS, RADIUS, SHADOW } from "../../lib/theme";
 import { todayStr, monthStartStr } from "../../lib/dates";
 
 export default function SwapScreen() {
@@ -97,7 +97,7 @@ export default function SwapScreen() {
     <GradientBackground>
       <View style={styles.header}><Text style={styles.headerTitle}>Shift Swap</Text></View>
       <FlatList
-        contentContainerStyle={{ padding: 16, paddingTop: 4 }}
+        contentContainerStyle={{ padding: 16, paddingTop: 4, paddingBottom: 110 }}
         data={openOffers}
         keyExtractor={(item) => item.id}
         ListHeaderComponent={
@@ -196,8 +196,7 @@ const styles = StyleSheet.create({
   headerTitle: { fontSize: 22, fontWeight: "700", color: COLORS.textDark },
   createBtn: {
     flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8,
-    borderRadius: RADIUS.card, padding: 18, marginBottom: 18,
-  },
+    borderRadius: RADIUS.card, padding: 18, marginBottom: 18, ...SHADOW },
   createBtnText: { color: "#fff", fontWeight: "700", fontSize: 17 },
   pendingCard: {
     flexDirection: "row", alignItems: "center", gap: 10,
@@ -205,7 +204,7 @@ const styles = StyleSheet.create({
   },
   pendingText: { flex: 1, color: COLORS.textDark, fontSize: 15, fontWeight: "500" },
   sectionTitle: { fontWeight: "700", fontSize: 15, color: COLORS.textMuted, marginTop: 10, marginBottom: 8, letterSpacing: 0.5 },
-  workloadCard: { backgroundColor: COLORS.white, borderRadius: RADIUS.card, padding: 18, marginBottom: 18 },
+  workloadCard: { backgroundColor: COLORS.white, borderRadius: RADIUS.card, padding: 18, marginBottom: 18, ...SHADOW },
   workloadTitle: { fontWeight: "700", fontSize: 15, color: COLORS.textDark, marginBottom: 2 },
   workloadSub: { fontSize: 12, color: COLORS.textFaint, marginBottom: 10 },
   workloadRow: {

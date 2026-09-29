@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { supabase } from "../../lib/supabase";
 import GradientBackground from "../../lib/GradientBackground";
-import { COLORS, RADIUS } from "../../lib/theme";
+import { COLORS, RADIUS, SHADOW } from "../../lib/theme";
 
 const TYPE_META = {
   URGENT_NEED: { icon: "alert-circle", bg: "#EF4444" },
@@ -55,7 +55,7 @@ export default function NotificationsScreen() {
       <View style={styles.header}><Text style={styles.headerTitle}>Notifications</Text></View>
       <FlatList
         style={{ flex: 1 }}
-        contentContainerStyle={{ padding: 16, paddingTop: 4 }}
+        contentContainerStyle={{ padding: 16, paddingTop: 4, paddingBottom: 110 }}
         data={rest}
         keyExtractor={(item) => item.id}
         ListHeaderComponent={
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   center: { flex: 1, alignItems: "center", justifyContent: "center" },
   header: { paddingTop: 8, paddingBottom: 10, alignItems: "center" },
   headerTitle: { fontSize: 22, fontWeight: "700", color: COLORS.textDark },
-  urgentCard: { borderRadius: RADIUS.card, padding: 20, marginBottom: 18 },
+  urgentCard: { borderRadius: RADIUS.card, padding: 20, marginBottom: 18, ...SHADOW },
   urgentTitle: { color: "#fff", fontWeight: "800", fontSize: 16, letterSpacing: 0.5, marginBottom: 6 },
   urgentMessage: { color: "#fff", fontSize: 16, marginBottom: 6 },
   urgentTap: { color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: "600" },

@@ -4,7 +4,7 @@ import { useFocusEffect } from "expo-router";
 import Svg, { Circle } from "react-native-svg";
 import { supabase } from "../../lib/supabase";
 import GradientBackground from "../../lib/GradientBackground";
-import { COLORS, RADIUS } from "../../lib/theme";
+import { COLORS, RADIUS, SHADOW } from "../../lib/theme";
 import { todayStr, monthStartStr } from "../../lib/dates";
 
 function parseHours(start, end) {
@@ -103,7 +103,7 @@ export default function AnalyticsScreen() {
   return (
     <GradientBackground>
       <View style={styles.header}><Text style={styles.headerTitle}>Attendance & Analytics</Text></View>
-      <ScrollView contentContainerStyle={{ padding: 16, paddingTop: 4 }}>
+      <ScrollView contentContainerStyle={{ padding: 16, paddingTop: 4, paddingBottom: 110 }}>
         <View style={styles.card}>
           <Text style={styles.cardHeading}>Overview - This Month</Text>
           <View style={styles.ringsRow}>
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   center: { flex: 1, alignItems: "center", justifyContent: "center" },
   header: { paddingTop: 8, paddingBottom: 10, alignItems: "center" },
   headerTitle: { fontSize: 20, fontWeight: "700", color: COLORS.textDark },
-  card: { backgroundColor: COLORS.white, borderRadius: RADIUS.card, padding: 20, marginBottom: 18 },
+  card: { backgroundColor: COLORS.white, borderRadius: RADIUS.card, padding: 20, marginBottom: 18, ...SHADOW },
   cardHeading: { fontWeight: "700", fontSize: 17, color: COLORS.textDark, marginBottom: 14 },
   ringsRow: { flexDirection: "row", justifyContent: "space-around" },
   ringLabel: { fontSize: 12, color: COLORS.textMuted, textAlign: "center" },
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   barFill: { height: "100%", justifyContent: "center", paddingLeft: 10, borderRadius: 8, minWidth: 40 },
   barLabel: { color: "#fff", fontSize: 13, fontWeight: "700" },
   barValue: { textAlign: "right", fontSize: 14, color: COLORS.textMuted },
-  restAlert: { backgroundColor: "#F59E0B", borderRadius: RADIUS.card, padding: 18, marginBottom: 18 },
+  restAlert: { backgroundColor: "#F59E0B", borderRadius: RADIUS.card, padding: 18, marginBottom: 18, ...SHADOW },
   restAlertText: { color: "#fff", fontWeight: "700", fontSize: 14, lineHeight: 20 },
   approvalText: { textAlign: "center", color: COLORS.textMuted, fontSize: 14, marginTop: 4 },
 });

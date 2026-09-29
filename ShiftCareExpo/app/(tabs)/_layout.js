@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { View } from "react-native";
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../../lib/theme";
@@ -21,67 +22,97 @@ export default function TabsLayout() {
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: COLORS.primaryEnd,
-        tabBarInactiveTintColor: "#9CA3AF",
+        tabBarInactiveTintColor: "#B0B8C4",
+        tabBarShowLabel: false,
         tabBarStyle: {
+          position: "absolute",
+          left: 16,
+          right: 16,
+          bottom: 18,
+          height: 64,
+          borderRadius: 32,
           backgroundColor: "#fff",
           borderTopWidth: 0,
-          height: 64,
-          paddingTop: 6,
-          paddingBottom: 8,
+          shadowColor: "#1E3A8A",
+          shadowOffset: { width: 0, height: 8 },
+          shadowOpacity: 0.18,
+          shadowRadius: 20,
+          elevation: 10,
         },
-        tabBarLabelStyle: { fontSize: 11, fontWeight: "600" },
+        tabBarItemStyle: { height: 64, paddingTop: 4 },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
-          tabBarIcon: ({ color, size }) => <Ionicons name="home" color={color} size={size} />,
+          tabBarIcon: ({ color, focused }) => (
+            <TabDot focused={focused}><Ionicons name={focused ? "home" : "home-outline"} color={color} size={22} /></TabDot>
+          ),
         }}
       />
       <Tabs.Screen
         name="shifts"
         options={{
-          title: "Shifts",
-          tabBarIcon: ({ color, size }) => <Ionicons name="calendar" color={color} size={size} />,
+          tabBarIcon: ({ color, focused }) => (
+            <TabDot focused={focused}><Ionicons name={focused ? "calendar" : "calendar-outline"} color={color} size={22} /></TabDot>
+          ),
         }}
       />
       <Tabs.Screen
         name="swap"
         options={{
-          title: "Swap",
-          tabBarIcon: ({ color, size }) => <Ionicons name="swap-horizontal" color={color} size={size} />,
+          tabBarIcon: ({ color, focused }) => (
+            <TabDot focused={focused}><Ionicons name="swap-horizontal" color={color} size={22} /></TabDot>
+          ),
         }}
       />
       <Tabs.Screen
         name="analytics"
         options={{
-          title: "Analytics",
-          tabBarIcon: ({ color, size }) => <Ionicons name="stats-chart" color={color} size={size} />,
+          tabBarIcon: ({ color, focused }) => (
+            <TabDot focused={focused}><Ionicons name={focused ? "stats-chart" : "stats-chart-outline"} color={color} size={22} /></TabDot>
+          ),
         }}
       />
       <Tabs.Screen
         name="notifications"
         options={{
-          title: "Notifications",
-          tabBarIcon: ({ color, size }) => <Ionicons name="notifications" color={color} size={size} />,
+          tabBarIcon: ({ color, focused }) => (
+            <TabDot focused={focused}><Ionicons name={focused ? "notifications" : "notifications-outline"} color={color} size={22} /></TabDot>
+          ),
         }}
       />
       <Tabs.Screen
         name="admin"
         options={{
-          title: "Admin",
           href: isAdmin ? undefined : null,
-          tabBarIcon: ({ color, size }) => <Ionicons name="shield-checkmark" color={color} size={size} />,
+          tabBarIcon: ({ color, focused }) => (
+            <TabDot focused={focused}><Ionicons name={focused ? "shield-checkmark" : "shield-checkmark-outline"} color={color} size={22} /></TabDot>
+          ),
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
-          title: "Profile",
-          tabBarIcon: ({ color, size }) => <Ionicons name="person" color={color} size={size} />,
+          tabBarIcon: ({ color, focused }) => (
+            <TabDot focused={focused}><Ionicons name={focused ? "person" : "person-outline"} color={color} size={22} /></TabDot>
+          ),
         }}
       />
     </Tabs>
+  );
+}
+
+function TabDot({ focused, children }) {
+  return (
+    <View
+      style={{
+        width: 44, height: 44, borderRadius: 22,
+        alignItems: "center", justifyContent: "center",
+        backgroundColor: focused ? "#EAF3FE" : "transparent",
+      }}
+    >
+      {children}
+    </View>
   );
 }

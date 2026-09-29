@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { supabase } from "../../lib/supabase";
 import GradientBackground from "../../lib/GradientBackground";
-import { COLORS, RADIUS } from "../../lib/theme";
+import { COLORS, RADIUS, SHADOW } from "../../lib/theme";
 import { todayStr, monthStartStr } from "../../lib/dates";
 
 export default function HomeScreen() {
@@ -221,12 +221,12 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { padding: 20, paddingBottom: 36 },
+  container: { padding: 20, paddingBottom: 110 },
   center: { alignItems: "center", justifyContent: "center" },
   brand: { fontSize: 14, color: COLORS.primaryEnd, fontWeight: "700", marginBottom: 4 },
   greeting: { fontSize: 27, fontWeight: "700", color: COLORS.textDark },
   subGreeting: { fontSize: 15, color: COLORS.textMuted, marginTop: 4, marginBottom: 22 },
-  bigCard: { borderRadius: RADIUS.card, padding: 20 },
+  bigCard: { borderRadius: RADIUS.card, padding: 20, ...SHADOW },
   bigCardHeader: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
   bigCardLabel: { color: "#fff", fontWeight: "700", fontSize: 13, letterSpacing: 0.5 },
   bigCardRow: { flexDirection: "row", alignItems: "center", gap: 8, marginTop: 10 },
@@ -236,8 +236,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderRadius: RADIUS.card,
     padding: 20,
-    marginTop: 20,
-  },
+    marginTop: 20, ...SHADOW },
   cardTitleRow: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
   cardTitle: { fontSize: 13, fontWeight: "700", color: COLORS.textMuted, letterSpacing: 0.5 },
   badge: { backgroundColor: "#DCFCE7", borderRadius: RADIUS.pill, paddingHorizontal: 10, paddingVertical: 3 },

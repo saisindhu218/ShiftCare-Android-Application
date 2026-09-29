@@ -5,7 +5,7 @@ import {
 import { useFocusEffect } from "expo-router";
 import { supabase } from "../../lib/supabase";
 import GradientBackground from "../../lib/GradientBackground";
-import { COLORS, RADIUS } from "../../lib/theme";
+import { COLORS, RADIUS, SHADOW } from "../../lib/theme";
 import { todayStr, monthStartStr } from "../../lib/dates";
 import { SHIFT_TYPES, isValidDate } from "../../lib/shiftTypes";
 
@@ -115,7 +115,7 @@ export default function AdminScreen() {
   return (
     <GradientBackground>
       <View style={styles.header}><Text style={styles.headerTitle}>Admin</Text></View>
-      <ScrollView contentContainerStyle={{ padding: 16, paddingTop: 4, paddingBottom: 40 }} keyboardShouldPersistTaps="handled">
+      <ScrollView contentContainerStyle={{ padding: 16, paddingTop: 4, paddingBottom: 110 }} keyboardShouldPersistTaps="handled">
 
         <View style={styles.card}>
           <Text style={styles.cardHeading}>Assign a Shift</Text>
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
   center: { flex: 1, alignItems: "center", justifyContent: "center" },
   header: { paddingTop: 8, paddingBottom: 10, alignItems: "center" },
   headerTitle: { fontSize: 22, fontWeight: "700", color: COLORS.textDark },
-  card: { backgroundColor: COLORS.white, borderRadius: RADIUS.card, padding: 20, marginBottom: 18 },
+  card: { backgroundColor: COLORS.white, borderRadius: RADIUS.card, padding: 20, marginBottom: 18, ...SHADOW },
   cardHeading: { fontWeight: "700", fontSize: 17, color: COLORS.textDark, marginBottom: 4 },
   cardSub: { fontSize: 12, color: COLORS.textFaint, marginBottom: 12 },
   label: { fontSize: 13, color: COLORS.textMuted, fontWeight: "600", marginBottom: 8, marginTop: 4 },

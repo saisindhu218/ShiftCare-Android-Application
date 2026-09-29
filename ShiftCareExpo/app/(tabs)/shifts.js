@@ -8,7 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { supabase } from "../../lib/supabase";
 import GradientBackground from "../../lib/GradientBackground";
-import { COLORS, RADIUS } from "../../lib/theme";
+import { COLORS, RADIUS, SHADOW } from "../../lib/theme";
 import { todayStr, monthStartStr } from "../../lib/dates";
 import { SHIFT_TYPES, isValidDate } from "../../lib/shiftTypes";
 
@@ -104,7 +104,7 @@ export default function ShiftsScreen() {
 
   return (
     <GradientBackground>
-      <ScrollView contentContainerStyle={{ padding: 16, paddingTop: 8, paddingBottom: 100 }}>
+      <ScrollView contentContainerStyle={{ padding: 16, paddingTop: 8, paddingBottom: 110 }}>
         <Text style={styles.brand}>ShiftCare</Text>
         <Text style={styles.pageTitle}>Shift Management</Text>
 
@@ -216,11 +216,11 @@ const styles = StyleSheet.create({
   center: { flex: 1, alignItems: "center", justifyContent: "center" },
   brand: { fontSize: 15, color: COLORS.primaryEnd, fontWeight: "700" },
   pageTitle: { fontSize: 24, fontWeight: "700", color: COLORS.textDark, marginTop: 4, marginBottom: 18 },
-  bigCard: { borderRadius: RADIUS.card, padding: 20, marginBottom: 20 },
+  bigCard: { borderRadius: RADIUS.card, padding: 20, marginBottom: 20, ...SHADOW },
   bigCardLabel: { color: "#fff", fontWeight: "700", fontSize: 14, letterSpacing: 0.5 },
   bigCardTime: { color: "#fff", fontWeight: "700", fontSize: 20, marginTop: 8 },
   bigCardSub: { color: "rgba(255,255,255,0.9)", marginTop: 6, fontSize: 15 },
-  calendarCard: { backgroundColor: COLORS.white, borderRadius: RADIUS.card, padding: 20 },
+  calendarCard: { backgroundColor: COLORS.white, borderRadius: RADIUS.card, padding: 20, ...SHADOW },
   monthRow: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 12 },
   monthTitle: { fontWeight: "700", fontSize: 17, color: COLORS.textDark },
   weekRow: { flexDirection: "row", marginBottom: 6 },
