@@ -12,6 +12,7 @@ drop policy if exists "avatar images are publicly readable" on storage.objects;
 create policy "avatar images are publicly readable" on storage.objects
   for select using (bucket_id = 'avatars');
 
+
 drop policy if exists "users can upload their own avatar" on storage.objects;
 create policy "users can upload their own avatar" on storage.objects
   for insert with check (
