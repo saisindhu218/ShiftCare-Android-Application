@@ -22,12 +22,12 @@ The goal is to ensure **continuous patient care, reduced miscommunication, and f
 
 ##  **Key Features**
 
-* ** Shift Management:** View, manage, and update daily work schedules.
-* ** Shift Swapping:** Request and accept shift exchanges with other doctors instantly.
-* ** Analytics Dashboard:** Track hours worked, swap statistics, and attendance history.
-* ** Smart Notifications:** Get real-time alerts for shift changes, approvals, and emergencies.
-* ** Profile Management:** Manage personal info, specialization, and shift history.
-* ** Admin Controls:** Admins can assign shifts, approve swaps, and monitor workload.
+* **Shift Management:** View, manage, and update daily work schedules.
+* **Shift Swapping:** Request and accept shift exchanges with other doctors instantly.
+* **Analytics Dashboard:** Track hours worked, swap statistics, and attendance history.
+* **Smart Notifications:** Get real-time alerts for shift changes, approvals, and emergencies.
+* **Profile Management:** Manage personal info, specialization, and shift history.
+* **Admin Controls:** Admins can assign shifts, approve swaps, and monitor workload.
 
 
 
